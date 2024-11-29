@@ -2,8 +2,10 @@
   <div class="nav">
     <div class="nav-in">
       <div class="logo">Логотип</div>
-      <div class="name">Имя, фамилия</div>
-      <div class="menu-dropdown">MENU</div>
+      <div class="right-group">
+        <div class="name">Имя, фамилия</div>
+        <div class="menu-dropdown">MENU</div>
+      </div>
     </div>
   </div>
   <div class="app">
@@ -77,9 +79,6 @@ export default {
   box-sizing: border-box;
 }
 
-.app {
-}
-
 .app__btns {
   display: flex;
   justify-content: space-between;
@@ -90,18 +89,21 @@ export default {
   height: 50px;
   background-color: teal;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 
-.logo {
-  margin: 15px;
-}
 .nav-in {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 20px;
+  width: 100%;
 }
 
-.name {
-  margin-right: 15px;
+.right-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 </style>
