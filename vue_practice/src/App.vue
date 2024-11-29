@@ -9,11 +9,17 @@
     </div>
   </div>
   <div class="app">
+    <div class="chekup">
+      <h3 v-if="posts.length > 0">Список осмотров</h3>
+      <h2 v-else style="color: red">Отсутствуют осмотры</h2>
+    <div class="btn">
+      <my-button @click="showDialog"> Новый осмотр </my-button>
+    </div>
+  </div>
     <post-list :posts="posts" @remove="removePost" v-if="!isPostsLoading" />
 
     <div v-else>Идет загрузка...</div>
     <div class="app__btns">
-      <my-button @click="showDialog"> Новый осмотр </my-button>
       <my-select />
     </div>
 
@@ -56,7 +62,7 @@ export default {
       try {
         this.isPostsLoading = true;
         const response = await axios.get(
-          "http://26.181.201.144:8000/patient/get_one/5"
+          "https://jsonplaceholder.typicode.com/posts?_limit=10"
         );
         this.posts = response.data;
       } catch (e) {
@@ -77,6 +83,11 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.chekup{
+  display: flex;
+  justify-content: space-between;
 }
 
 .app__btns {

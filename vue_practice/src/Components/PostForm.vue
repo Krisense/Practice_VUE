@@ -1,16 +1,16 @@
+  <!-- МОДАЛЬНОЕ ОКНО -->
 <template>
-  <form @submit.prevent>
-    <h4>Создание поста</h4>
-    <my-input v-model="post.title"   type="text" placeholder="Название" />
-
+  <form @submit.prevent="createPost"> 
+    <h4>Новый осмотр</h4>
+    <my-input v-model="post.title" type="text" placeholder="Название" />
     <my-input v-model="post.body" type="text" placeholder="Описание" />
     <my-button
       class="btn"
       style="align-self: flex-end; margin-top: 15px"
-      @click="createPost"
+      type="submit"
     >
-      Создать</my-button
-    >
+      Создать
+    </my-button>
   </form>
 </template>
 
@@ -26,12 +26,13 @@ export default {
   },
   methods: {
     createPost() {
-      this.post.id = Date.now();
-      this.$emit("create", this.post);
+      console.log("Форма отправлена", this.post);
+      this.post.id = Date.now(); // Генерация ID для нового поста
+      this.$emit("create", this.post); // Передача данных в родительский компонент
       this.post = {
         title: "",
         body: "",
-      };
+      }; // Очистка формы
     },
   },
 };

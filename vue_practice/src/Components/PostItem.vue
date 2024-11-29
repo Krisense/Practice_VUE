@@ -1,8 +1,8 @@
 <template>
   <div class="post">
     <div>
-      <div><strong>Название-</strong>{{ post.first_name }}</div>
-      <div><strong>Описание-</strong>{{ post.second_name }}</div>
+      <div><strong>Название-</strong>{{ post.title }}</div>
+      <div><strong>Описание-</strong>{{ post.body }}</div>
     </div>
     <div class="post__btns">
       <my-button @click="$emit('remove', post)">Удалить</my-button>
